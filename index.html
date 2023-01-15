@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body{
+        background-color: cadetblue;
+    }
+      /* CSS styles pour le carré  */
+
+      #square {
+        width: 300px;
+        height: 300px;
+        background: purple;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      #heart1, #heart2 {
+        width: 50px;
+        height: 50px;
+        background: red;
+        border-radius: 25px 25px 50px 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="square">
+      <div id="heart1"></div>
+      <div id="heart2"></div>
+    </div>
+    <button id="delete-hearts-button">Delete Hearts</button>
+    <button id="add-hearts-button">Add Hearts</button>
+    <script>
+      // Code JavaScript pour effectuer l'animation
+      var heart1 = document.getElementById("heart1");
+      var heart2 = document.getElementById("heart2");
+      
+      // Position the coeurs 
+      heart1.style.left = "-100px";
+      heart2.style.left = "400px";
+      
+      // Animation des coeurs
+      heart1.animate([
+        // keyframes
+        { left: "-100px" }, 
+        { left: "150px" }
+      ], { 
+        // timing 
+        duration: 2000,
+        fill: "forwards"
+      });
+      
+      heart2.animate([
+        // keyframes
+        { left: "400px" }, 
+        { left: "150px" }
+      ], { 
+        // timing 
+        duration: 2000,
+        fill: "forwards"
+      });
+
+      // ajout d'un event listener pour suprimer les coeurs when clicked 
+      document.getElementById("delete-hearts-button").addEventListener("click", function() {
+        heart1.remove();
+        heart2.remove();
+
+      });
+
+     
+
+    </script>
+  </body>
+</html>
